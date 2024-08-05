@@ -1,0 +1,10 @@
+.productsCardList{
+   display: flex;
+   flex-wrap: wrap;
+   margin-top: 30px;
+   margin-bottom: 50px;
+   align-items: center;
+   justify-content: center;
+   gap: 25px;
+   width: 99%;
+}

@@ -1,0 +1,36 @@
+.product_card {
+  display: flex;
+  flex-direction: column;
+  width: 305px;
+  height: 420px;
+  box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
+  padding: 0;
+}
+.product_card img {
+  height: 260px;
+}
+.card_text{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.product_card p {
+  color: #000;
+}
+.card_info{
+   display: flex;
+   padding: 0px 15px;
+   justify-content: space-between;
+   align-items: center;
+}
+.description{
+   width: 200px;
+   font-size: 15px;
+}
+.product_title{
+   margin-left: 15px;
+   font-size: 18px;
+}
+.price{
+   font-size: 20px;
+}

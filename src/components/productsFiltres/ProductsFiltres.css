@@ -1,0 +1,19 @@
+.filters_box {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.filters_item {
+  padding: 8px 12px;
+  border-radius: 25px;
+  background: rgba(16, 174, 185, 0.917);
+  color: white;
+  cursor: pointer;
+}
+.filters_item:hover {
+  background: rgb(8, 104, 128);
+}
+.active_filter{
+   background: rgb(8, 104, 128);
+}

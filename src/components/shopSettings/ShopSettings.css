@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(165, 164, 164, 0.216);
+  padding: 20px 50px;
+}
+.header input {
+  border: 3px solid rgba(124, 124, 124, 0.66);
+  border-radius: 15px;
+  outline: none;
+  width: 500px;
+  height: 20px;
+  font-size: 18px;
+  padding: 8px 10px;
+}
+.header input:hover{
+   border: 3px solid rgba(16, 174, 185, 0.917);
+}
