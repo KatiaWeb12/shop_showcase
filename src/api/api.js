@@ -5,5 +5,8 @@ export const api = {
    },
    getProducts: ()=>{
       return fetch(baseUrl + 'products')
+   },
+   getProductsByCategory: (categoryId)=>{
+      return fetch(baseUrl + `/products/?categoryId=${categoryId}`)
    }
 }

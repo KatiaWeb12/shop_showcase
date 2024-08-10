@@ -1,11 +1,11 @@
 import ProductsFiltres from '../productsFiltres/ProductsFiltres'
 import './ShopSettings.css'
 
-export default function ShopSettings(){
+export default function ShopSettings(props){
     return(
       <div className='header'>
          <input type="text" />
-         <ProductsFiltres/>
+         <ProductsFiltres {...props}/>
       </div>
     )
 }
