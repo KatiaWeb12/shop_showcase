@@ -1,0 +1,16 @@
+.counter {
+  display: flex;
+  gap: 4px;
+}
+.counter button {
+  width: 20px;
+  height: 20px;
+  bottom: none;
+  outline: none;
+  color: white;
+  background: rgba(16, 174, 185, 0.917);
+  font-size: 14px;
+}
+.counter span{
+   font-size: 14px;
+}

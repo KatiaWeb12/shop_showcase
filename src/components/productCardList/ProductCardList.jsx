@@ -3,45 +3,36 @@ import "./ProductCardList.css";
 import { api } from "../../api/api";
 import ProductCard from "../productCard/ProductCard";
 
+function getProductsInfo(data) {
+  return data.map((el) => {
+    return {
+      id: el.id,
+      category: el.category,
+      title: el.title,
+      description: el.description,
+      price: el.price,
+      image: el.image,
+    };
+  });
+}
 export default function ProductCardList({ activeFilter }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    setProducts([]);
     if (activeFilter) {
       api
         .getProductsByCategory(activeFilter)
         .then((res) => res.json())
         .then((data) => {
-          setProducts(
-            data.map((el) => {
-              return {
-                id: el.id,
-                category: el.category.name,
-                title: el.title,
-                description: el.description,
-                price: el.price,
-                image: el.images[0],
-              };
-            })
-          );
+          setProducts(getProductsInfo(data));
         });
     } else {
       api
         .getProducts()
         .then((res) => res.json())
         .then((data) => {
-          setProducts(
-            data.map((el) => {
-              return {
-                id: el.id,
-                category: el.category.name,
-                title: el.title,
-                description: el.description,
-                price: el.price,
-                image: el.images[0],
-              };
-            })
-          );
+          setProducts(getProductsInfo(data));
         });
     }
   }, [activeFilter]);
