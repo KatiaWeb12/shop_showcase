@@ -6,7 +6,7 @@ export default function CartProduct({ product: { price, image, title, id } }) {
     <div className="cart_product">
       <div className="cart_product_info">
         <img src={image} alt="" />
-        <p>{title}</p>
+        <p className="cart_product_title">{title.length > 38 ? title.slice(0, 38) + '...' : title}</p>
         <p>price: {price}$</p>
       </div>
       <ProductCounter />

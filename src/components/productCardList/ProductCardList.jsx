@@ -2,37 +2,28 @@ import { useEffect, useState } from "react";
 import "./ProductCardList.css";
 import { api } from "../../api/api";
 import ProductCard from "../productCard/ProductCard";
+import { useDispatch, useSelector } from "react-redux";
+import { productListActions } from "../../redux/slices/productListSlice";
 
-function getProductsInfo(data) {
-  return data.map((el) => {
-    return {
-      id: el.id,
-      category: el.category,
-      title: el.title,
-      description: el.description,
-      price: el.price,
-      image: el.image,
-    };
-  });
-}
+
 export default function ProductCardList({ activeFilter }) {
-  const [products, setProducts] = useState([]);
-
+  const products = useSelector((state)=>state.productList)
+  const dispatch = useDispatch()
   useEffect(() => {
-    setProducts([]);
+    dispatch(productListActions.resetList())
     if (activeFilter) {
       api
         .getProductsByCategory(activeFilter)
         .then((res) => res.json())
         .then((data) => {
-          setProducts(getProductsInfo(data));
+          dispatch(productListActions.addProducts(data))
         });
     } else {
       api
         .getProducts()
         .then((res) => res.json())
         .then((data) => {
-          setProducts(getProductsInfo(data));
+          dispatch(productListActions.addProducts(data))
         });
     }
   }, [activeFilter]);

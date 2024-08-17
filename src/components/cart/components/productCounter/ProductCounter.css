@@ -1,16 +1,20 @@
 .counter {
   display: flex;
-  gap: 4px;
+  align-items: center;
+  gap: 13px;
 }
 .counter button {
-  width: 20px;
-  height: 20px;
-  bottom: none;
+  width: 30px;
+  height: 30px;
+  border: none;
   outline: none;
   color: white;
   background: rgba(16, 174, 185, 0.917);
-  font-size: 14px;
+  font-size: 25px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
 }
 .counter span{
-   font-size: 14px;
+  font-size: 20px;
 }

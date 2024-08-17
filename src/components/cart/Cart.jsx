@@ -4,6 +4,7 @@ import "react-modern-drawer/dist/index.css";
 import CartTrigger from "./CartTrigger";
 import { useState } from "react";
 import CartProduct from "./components/cartProduct/CartProduct";
+import Close from "../../assets/close.png"
 
 const mockData = [
   {
@@ -86,7 +87,6 @@ const mockData = [
       count: 70,
     },
   },
-
 ];
 export default function Cart() {
   const [isOpened, setIsOpened] = useState(false);
@@ -96,13 +96,15 @@ export default function Cart() {
   return (
     <>
       <CartTrigger onClick={() => setIsOpened(true)} />
-      <Drawer open={isOpened} onClose={onClose} direction="right" size="400px">
-        <div>
+      <Drawer open={isOpened} onClose={onClose} direction="right" size="450px">
+        <div className="cart_navigation">
           <h2>Cart</h2>
-          <img src="" alt="" />
+          <img src={Close} alt="" onClick={()=>setIsOpened(false)}/>
         </div>
         <div className="cart_product_list">
-          {mockData.map(el => <CartProduct product={el}/>)}
+          {mockData.map((el) => (
+            <CartProduct product={el} />
+          ))}
         </div>
       </Drawer>
     </>
