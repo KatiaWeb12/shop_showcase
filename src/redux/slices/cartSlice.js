@@ -19,6 +19,28 @@ const cartSlice = createSlice({
       }
       state.totalPrice += payload.price;
     },
+    increaseProductQuantity: (state, { payload }) => {
+      const currentProduct = state.cartList.find((el) => el.id === payload);
+      if (!currentProduct) {
+        return;
+      }
+      currentProduct.quantity += 1;
+      state.totalPrice += currentProduct.price;
+    },
+    decreaseProductQuantity: (state, { payload }) => {
+      const currentProduct = state.cartList.find((el) => el.id === payload);
+      if (!currentProduct) {
+        return;
+      }
+      currentProduct.quantity -= 1;
+      state.totalPrice -= currentProduct.price;
+    },
+    removeCartProduct: (state, { payload }) => {
+      const currentProductIndex = state.cartList.findIndex(
+        (el) => el.price === payload
+      );
+      state.cartList.splice(currentProductIndex, 1);
+    },
     resetValue: () => initialState,
   },
 });

@@ -5,15 +5,14 @@ import CartTrigger from "./CartTrigger";
 import { useState } from "react";
 import CartProduct from "./components/cartProduct/CartProduct";
 import Close from "../../assets/close.png";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 export default function Cart() {
   const [isOpened, setIsOpened] = useState(false);
   const cart = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
   function onClose() {
     setIsOpened(false);
   }
-  function onOpen(){
+  function onOpen() {
     setIsOpened(true);
   }
   return (
@@ -23,7 +22,7 @@ export default function Cart() {
         <div className="cart_navigation">
           <h2>Cart</h2>
           <p className="total_price">Total price: {cart.totalPrice}$</p>
-          <img src={Close} alt="" onClick={onClose} />
+          <img src={Close} alt="closeCart" onClick={onClose} />
         </div>
         <div className="cart_product_list">
           {cart.cartList.map((el) => (

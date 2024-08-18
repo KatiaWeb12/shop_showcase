@@ -1,15 +1,32 @@
 import ProductCounter from "../productCounter/ProductCounter";
 import "./CartProduct.css";
-
-export default function CartProduct({ product: { price, imageSrc, title, id } }) {
+import Delete from "../../../../assets/delete.png";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../../../../redux/slices/cartSlice";
+export default function CartProduct({
+  product: { price, imageSrc, title, id },
+}) {
+  const cartList = useSelector((state) => state.cart.cartList);
+  const dispatch = useDispatch();
+  function removeCartProduct() {
+    dispatch(cartActions.removeCartProduct(price));
+    console.log(cartList);
+  }
   return (
     <div className="cart_product">
+      <img src={imageSrc} alt="cartImg" className="cart_img" />
       <div className="cart_product_info">
-        <img src={imageSrc} alt="" />
-        <p className="cart_product_title">{title.length > 38 ? title.slice(0, 38) + '...' : title}</p>
-        <p>price: {price}$</p>
+        <div className="cart_product_text">
+          <p className="cart_product_title">{title}</p>
+          <p>{price}$</p>
+        </div>
+        <div className="cart_product_buttons">
+          <ProductCounter productId={id} />
+          <button className="delete" onClick={() => removeCartProduct()}>
+            <img src={Delete} alt="DeleteButtonImg" />
+          </button>
+        </div>
       </div>
-      <ProductCounter />
     </div>
   );
 }
