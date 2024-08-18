@@ -8,6 +8,7 @@ function getProductsInfo(el) {
     description: el.description,
     price: el.price,
     image: el.image,
+    quantity: 0,
   };
 }
 const initialState = [];

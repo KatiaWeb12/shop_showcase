@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Cart from "./components/cart/Cart";
 import ProductCardList from "./components/productCardList/ProductCardList";
-import ShopSettings from "./components/shopSettings/ShopSettings";
+import ShopSettings from "./components/shopSettings/ShopSettings";  
 import StoreProvider from "./providers/StoreProvider";
 
 function App() {
