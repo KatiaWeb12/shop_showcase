@@ -36,10 +36,20 @@ const cartSlice = createSlice({
       state.totalPrice -= currentProduct.price;
     },
     removeCartProduct: (state, { payload }) => {
-      const currentProductIndex = state.cartList.findIndex(
-        (el) => el.price === payload
+      const currentProduct = state.cartList.find((el) => el.id === payload);
+      if (!currentProduct) {
+        return;
+      }
+      const productPrice = (
+        currentProduct.price * currentProduct.quantity
+      ).toFixed(2);
+      state.totalPrice -= productPrice;
+      state.cartList = state.cartList.filter(
+        (el) => el.id !== currentProduct.id
       );
-      state.cartList.splice(currentProductIndex, 1);
+      if (state.cartList.length === 0) {
+        state.totalPrice = 0;
+      }
     },
     resetValue: () => initialState,
   },
