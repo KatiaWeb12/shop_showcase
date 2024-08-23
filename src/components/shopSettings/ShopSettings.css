@@ -7,15 +7,4 @@
   padding: 20px 50px;
   box-sizing: border-box;
 }
-.header input {
-  border: 3px solid rgba(124, 124, 124, 0.66);
-  border-radius: 15px;
-  outline: none;
-  width: 500px;
-  height: 20px;
-  font-size: 18px;
-  padding: 8px 10px;
-}
-.header input:hover {
-  border: 3px solid rgba(16, 174, 185, 0.917);
-}
+

@@ -6,7 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { productListActions } from "../../redux/slices/productListSlice";
 
 export default function ProductCardList({ activeFilter }) {
-  const products = useSelector((state) => state.productList);
+  const { fullProductList, searchProducts } = useSelector(
+    (state) => state.productList
+  );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(productListActions.resetList());
@@ -25,10 +27,10 @@ export default function ProductCardList({ activeFilter }) {
           dispatch(productListActions.addProducts(data));
         });
     }
-  }, [activeFilter]);
+  }, [activeFilter, dispatch]);
   return (
     <div className="productsCardList">
-      {products.map((el) => (
+      {(searchProducts.length ? searchProducts : fullProductList).map((el) => (
         <ProductCard cardInfo={el} key={el.id} />
       ))}
     </div>

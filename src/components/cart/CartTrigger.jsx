@@ -4,7 +4,7 @@ import './Cart.css'
 export default function CartTrigger({onClick}){
     return(
         <button className="cart_trigger" onClick={onClick}>
-            <img src={cart}/>
+            <img src={cart} alt="cart_trigger"/>
         </button>
     )
 }

@@ -11,13 +11,21 @@ function getProductsInfo(el) {
     quantity: 0,
   };
 }
-const initialState = [];
+const initialState = {
+  fullProductList: [],
+  searchProducts: [],
+};
 const productListSlice = createSlice({
   name: "productList",
   initialState,
   reducers: {
     addProducts: (state, { payload }) => {
-      return payload.map((el) => getProductsInfo(el));
+      state.fullProductList = payload.map((el) => getProductsInfo(el));
+    },
+    addSearchProducts: (state, { payload }) => {
+      state.searchProducts = state.fullProductList.filter((el) =>
+        el.title.toLowerCase().includes(payload.toLowerCase())
+      );
     },
     resetList: () => initialState,
   },
