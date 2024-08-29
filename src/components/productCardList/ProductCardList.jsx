@@ -4,9 +4,10 @@ import { api } from "../../api/api";
 import ProductCard from "../productCard/ProductCard";
 import { useDispatch, useSelector } from "react-redux";
 import { productListActions } from "../../redux/slices/productListSlice";
+import EmptyState from "../emptyState/EmptyState";
 
 export default function ProductCardList({ activeFilter }) {
-  const { fullProductList, searchProducts } = useSelector(
+  const { fullProductList, searchProducts, searchRequest } = useSelector(
     (state) => state.productList
   );
   const dispatch = useDispatch();
@@ -30,9 +31,15 @@ export default function ProductCardList({ activeFilter }) {
   }, [activeFilter, dispatch]);
   return (
     <div className="productsCardList">
-      {(searchProducts.length ? searchProducts : fullProductList).map((el) => (
-        <ProductCard cardInfo={el} key={el.id} />
-      ))}
+      {searchRequest ? (
+        searchProducts.length ? (
+          searchProducts.map((el) => <ProductCard cardInfo={el} key={el.id} />)
+        ) : (
+          <EmptyState />
+        )
+      ) : (
+        fullProductList.map((el) => <ProductCard cardInfo={el} key={el.id} />)
+      )}
     </div>
   );
 }

@@ -17,7 +17,7 @@ export default function Cart() {
   }
   return (
     <>
-      <CartTrigger onClick={onOpen} />
+      {Boolean(cart.cartList.length) && <CartTrigger onClick={onOpen} />}
       <Drawer open={isOpened} onClose={onClose} direction="right" size="450px">
         <div className="cart_navigation">
           <h2>Cart</h2>

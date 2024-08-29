@@ -14,6 +14,7 @@ function getProductsInfo(el) {
 const initialState = {
   fullProductList: [],
   searchProducts: [],
+  searchRequest: false,
 };
 const productListSlice = createSlice({
   name: "productList",
@@ -23,9 +24,15 @@ const productListSlice = createSlice({
       state.fullProductList = payload.map((el) => getProductsInfo(el));
     },
     addSearchProducts: (state, { payload }) => {
-      state.searchProducts = state.fullProductList.filter((el) =>
-        el.title.toLowerCase().includes(payload.toLowerCase())
-      );
+      if (!payload) {
+        state.searchProducts = initialState.searchProducts;
+        state.searchRequest = false;
+      } else {
+        state.searchProducts = state.fullProductList.filter((el) =>
+          el.title.toLowerCase().includes(payload.toLowerCase())
+        );
+        state.searchRequest = true;
+      }
     },
     resetList: () => initialState,
   },
