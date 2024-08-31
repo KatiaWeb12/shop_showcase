@@ -18,32 +18,32 @@
 .cart_trigger img {
   width: 24px;
 }
-.cart_product_list{
+.cart_product_list {
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: center;
 }
-.cart_navigation{
+.cart_navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 24px;
 }
-.cart_navigation h2{
+.cart_navigation h2 {
   font-size: 30px;
 }
-.cart_navigation img{
+.cart_navigation img {
   width: 20px;
   height: 20px;
   cursor: pointer;
 }
-.EZDrawer__container{
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding: 0px 15px;
+.total_price {
+  font-size: 24px;
 }
-.total_price{
-  font-size: 18px;
+.drawer_content {
+  padding: 24px;
+  overflow: auto;
+  box-sizing: border-box;
+  max-height: 100%;
 }

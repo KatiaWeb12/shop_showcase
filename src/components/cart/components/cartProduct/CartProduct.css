@@ -9,8 +9,8 @@
   border-bottom: 1px solid rgb(146, 146, 146);
 }
 .cart_img {
-  width: 50%;
   height: 168px;
+  object-fit: contain;
 }
 .cart_product_info {
   width: 100%;

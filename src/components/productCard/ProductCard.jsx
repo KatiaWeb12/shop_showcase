@@ -23,28 +23,20 @@ export default function ProductCard({ cardInfo }) {
     <div className="product_card">
       <img src={cardInfo.image} alt="" />
       <div className="card_text">
-        <p className="product_title">
-          {cardInfo.title.length > 27
-            ? cardInfo.title.slice(0, 27) + "..."
-            : cardInfo.title}
-        </p>
+        <h6 className="product_title">{cardInfo.title}</h6>
         <div className="card_info">
-          <p className="description">
-            {cardInfo.description.length > 85
-              ? cardInfo.description.slice(0, 85) + "..."
-              : cardInfo.description}
-          </p>
+          <p className="description">{cardInfo.description}</p>
           <p className="price">{cardInfo.price}$</p>
         </div>
-        <div className="productInCart">
-          {isInCart() ? (
-            <ProductCounter productId={cardInfo.id} />
-          ) : (
-            <button className="add_to_cart" onClick={addProductToCart}>
-              Add to cart
-            </button>
-          )}
-        </div>
+      </div>
+      <div className="productInCart">
+        {isInCart() ? (
+          <ProductCounter productId={cardInfo.id} />
+        ) : (
+          <button className="add_to_cart" onClick={addProductToCart}>
+            Add to cart
+          </button>
+        )}
       </div>
     </div>
   );
