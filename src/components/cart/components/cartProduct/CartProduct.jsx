@@ -1,15 +1,12 @@
 import ProductCounter from "../productCounter/ProductCounter";
 import "./CartProduct.css";
 import Delete from "../../../../assets/delete.png";
-import { useDispatch } from "react-redux";
-import { cartActions } from "../../../../redux/slices/cartSlice";
+import { useState } from "react";
+import Modal from "../../../modal/Modal";
 export default function CartProduct({
   product: { price, imageSrc, title, id },
 }) {
-  const dispatch = useDispatch();
-  function removeCartProduct() {
-    dispatch(cartActions.removeCartProduct(id));
-  }
+  const [isOpenWodalWindow, setIsOpenWodalWindow] = useState(false);
   return (
     <div className="cart_product">
       <img src={imageSrc} alt="cartImg" className="cart_img" />
@@ -20,11 +17,14 @@ export default function CartProduct({
         </div>
         <div className="cart_product_buttons">
           <ProductCounter productId={id} />
-          <button className="delete" onClick={removeCartProduct}>
+          <button className="delete" onClick={() => setIsOpenWodalWindow(true)}>
             <img src={Delete} alt="DeleteButtonImg" />
           </button>
         </div>
       </div>
+      {isOpenWodalWindow && (
+        <Modal productName={title} id={id} onClose={setIsOpenWodalWindow} />
+      )}
     </div>
   );
 }

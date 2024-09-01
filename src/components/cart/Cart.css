@@ -47,3 +47,6 @@
   box-sizing: border-box;
   max-height: 100%;
 }
+.drawer_content::-webkit-scrollbar {
+  width: 0;
+}

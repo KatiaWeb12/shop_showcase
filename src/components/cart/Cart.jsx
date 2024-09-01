@@ -2,7 +2,7 @@ import "./Cart.css";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import CartTrigger from "./CartTrigger";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CartProduct from "./components/cartProduct/CartProduct";
 import Close from "../../assets/close.png";
 import { useSelector } from "react-redux";
@@ -15,6 +15,11 @@ export default function Cart() {
   function onOpen() {
     setIsOpened(true);
   }
+  useEffect(() => {
+    if (!cart.cartList.length) {
+      setIsOpened(false);
+    }
+  }, [cart.cartList]);
   return (
     <>
       {Boolean(cart.cartList.length) && <CartTrigger onClick={onOpen} />}
@@ -27,7 +32,7 @@ export default function Cart() {
           </div>
           <div className="cart_product_list">
             {cart.cartList.map((el) => (
-              <CartProduct product={el} key={el.id} />
+              <CartProduct product={el} key={el.id} changeDrawerStatus={setIsOpened}/>
             ))}
           </div>
         </div>
