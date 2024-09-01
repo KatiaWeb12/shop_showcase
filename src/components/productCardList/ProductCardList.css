@@ -5,3 +5,15 @@
   width: 95%;
   margin: 30px auto 50px auto;
 }
+.list_item_skeleton {
+  display: flex;
+  flex-direction: column;
+  width: 305px;
+  box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  gap: 16px;
+  flex-grow: 1;
+}
+.skel_but {
+  align-self: flex-end;
+}
