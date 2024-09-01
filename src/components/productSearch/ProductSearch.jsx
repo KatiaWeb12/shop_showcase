@@ -20,6 +20,7 @@ export default function ProductSearch() {
       type="text"
       value={search}
       onChange={onChangeSearch}
+      placeholder="Input pruduct name"
     />
   );
 }
