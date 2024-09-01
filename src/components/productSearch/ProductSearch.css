@@ -13,3 +13,9 @@
 .search_input:focus {
   border: 3px solid rgba(16, 174, 185, 0.917);
 }
+
+@media screen and (max-width: 600px) {
+  .search_input {
+    width: 95%;
+  }
+}

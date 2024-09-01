@@ -1,8 +1,12 @@
 .productsCardList {
   display: flex;
   flex-wrap: wrap;
-  gap: 25px;
+  flex-grow: 1;
+  align-content: flex-start;
+  align-items: stretch;
+  gap: 16px;
   width: 95%;
+  max-width: 1600px;
   margin: 30px auto 50px auto;
 }
 .list_item_skeleton {
